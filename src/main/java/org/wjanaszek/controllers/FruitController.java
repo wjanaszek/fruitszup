@@ -34,7 +34,7 @@ public class FruitController {
     @RequestMapping("fruit/{id}")
     public String showFruit(@PathVariable Integer id, Model model) {
         model.addAttribute("fruit", fruitService.getFruitById(id));
-        return "productshow";
+        return "fruitshow";
     }
 
     @RequestMapping(value = "/fruits", method = RequestMethod.GET)

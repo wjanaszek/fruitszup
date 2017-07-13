@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Fruitszup</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(fruits)}">
+        <h2>Fruit List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Fruit Id</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>View</th>
+                <th>Edit</th>
+            </tr>
+            <tr th:each="fruit : ${fruits}">
+                <td th:text="${fruit.id}"><a href="/fruit/${fruit.id}">Id</a></td>
+                <td th:text="${fruit.fruitId}">Fruit Id</td>
+                <td th:text="${fruit.description}">descirption</td>
+                <td th:text="${fruit.price}">price</td>
+                <td><a th:href="${ '/fruit/' + fruit.id}">View</a></td>
+                <td><a th:href="${'/fruit/edit/' + fruit.id}">Edit</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
